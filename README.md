@@ -1,7 +1,6 @@
 # Html injection Vite plugin
 
 [![NPM](https://img.shields.io/npm/v/vite-plugin-html-injection)](https://www.npmjs.com/package/vite-plugin-html-injection)
-
 [![NPM downloads](https://img.shields.io/npm/dt/vite-plugin-html-injection)](https://www.npmjs.com/package/vite-plugin-html-injection)
 
 Vite plugin for injecting html, js, css code snippets into index.html
