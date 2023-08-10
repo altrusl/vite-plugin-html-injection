@@ -1,7 +1,110 @@
-# Vue 3 + Vite
+# Html injection Vite plugin
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+[![NPM](https://img.shields.io/npm/v/vite-plugin-html-injection)](https://www.npmjs.com/package/vite-plugin-html-injection)
 
-## Recommended IDE Setup
+<!-- [![NPM downloads](https://img.shields.io/npm/dt/vite-plugin-html-injection)](https://www.npmjs.com/package/vite-plugin-html-injection) -->
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Vite plugin for injecting html, js, css code snippets into index.html
+
+This plugin allows you to store code snippets in separate files keeping index.html clean and inject them during build.
+
+The plugin also supports Vite dev server HMR which means you can edit code snippets and see result in the browser immediately
+
+## Description
+
+There are three `types` of code snippets - `'raw'`, `'js'` and `'css'`. `'raw'` snippets are injected as is, `'js'` and `'css'` ones are wrapped in \<script\> and \<style\> tags respectfully.
+
+There are four places you can inject a code snippet to - the beginning and end of the index.html `head` and the beginning and end of `body`
+
+Corresponding `insertTo` values are: `head-prepend`, `head`, `body-prepend` and `body`
+
+## 📦 Installation
+
+```bash
+pnpm add vite-plugin-html-injection -D
+yarn add vite-plugin-html-injection -D
+npm i vite-plugin-html-injection -D
+```
+
+<br>
+
+## Usage
+
+1. Add **`vite-plugin-html-injection`** to your Vite plugins with required configuration:
+
+```js
+// vite.config.js
+
+import { htmlInjectionPlugin } from "vite-plugin-html-injection";
+
+export default {
+  plugins: [
+    htmlInjectionPlugin({
+      // example injections
+      injections: [
+        {
+          name: "Open Graph",
+          path: "./src/injections/open-graph.html",
+          type: "raw",
+          injectTo: "head",
+        },
+        {
+          name: "Google analytics",
+          path: "./src/injections/ga.html",
+          type: "raw",
+          injectTo: "body",
+        },
+      ],
+    }),
+  ],
+};
+```
+
+> Hint: You can place config object in separate json file and import it in the vite.config.js
+> <br>
+
+2. Create corresponding code snippets:
+
+```html
+<!-- ./src/injections/open-graph.html -->
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://www.acme.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="My Acme website" />
+<meta property="og:description" content="Welcome to my Acme website" />
+<meta property="og:image" content="https://www.acme.com/logo.png" />
+```
+
+```html
+<!-- ./src/injections/ga.html -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8W4X32XXXX" />
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-8W4X32XXXX");
+</script>
+```
+
+## Signature
+
+The plugin is strongly types. Here is the signature of its configuration:
+
+```ts
+export interface IHtmlInjectionConfig {
+  injections: IHtmlInjectionConfigInjection[];
+}
+
+export interface IHtmlInjectionConfigInjection {
+  name?: string;
+  path: string;
+  type?: "raw" | "js" | "css"; // default is 'raw'
+  injectTo?: "head" | "body" | "head-prepend" | "body-prepend";
+}
+```

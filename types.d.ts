@@ -1,9 +1,9 @@
+export interface IHtmlInjectionConfig {
+  injections: IHtmlInjectionConfigInjection[];
+}
 export interface IHtmlInjectionConfigInjection {
   name?: string;
   path: string;
-  type: string;
+  type: "raw" | "js" | "css";
   injectTo?: "head" | "body" | "head-prepend" | "body-prepend";
-}
-export interface IHtmlInjectionConfig {
-  injections: IHtmlInjectionConfigInjection[];
 }
