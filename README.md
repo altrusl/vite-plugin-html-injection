@@ -26,7 +26,7 @@ Corresponding `insertTo` values are: `head-prepend`, `head`, `body-prepend` and 
 
 <br>
 
-## 📦 Installation
+## Installation
 
 ```bash
 pnpm add vite-plugin-html-injection -D
@@ -109,7 +109,7 @@ export default {
 
 <br>
 
-That's it. After running `npm serve` or `npm build` command the snippets will be injected
+That's it. After running `npm serve` or `npm build` command the code snippets will be injected
 
 <br>
 
@@ -130,10 +130,14 @@ export interface IHtmlInjectionConfigInjection {
 }
 ```
 
+<br>
+
 ## Contributing
 
-You are welcome to make suggestions to (GitHub Issues) of extend functionality of (fork->edit->make PR) this Vite plugin
+You are welcome to make suggestions to (GitHub Issues) of extend functionality of (fork-modify-make PR) this Vite plugin
 
-## 📄 License
+<br>
+
+## License
 
 MIT License © 2022
