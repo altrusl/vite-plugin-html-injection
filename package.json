@@ -1,0 +1,55 @@
+{
+  "name": "vite-plugin-html-injection",
+  "version": "1.1.4",
+  "description": "Vite plugin for injecting html, js, css code snippets into index.html",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "keywords": [
+    "vite-plugin",
+    "html",
+    "inject",
+    "injection"
+  ],
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && copy types.d.ts dist\\index.d.ts",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "dist": "^0.1.2",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.39.8",
+    "@types/node": "^20.4.5",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "eslint": "^8.46.0",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.7"
+  },
+  "peerDependencies": {
+    "vite": ">= 3.0.0"
+  },
+  "author": "Ruslan Makarov <ruslan.makarov@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feat-agency/vite-plugin-webfont-dl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/feat-agency/vite-plugin-webfont-dl/issues"
+  },
+  "homepage": "https://webfont-dl.feat.agency"
+}
