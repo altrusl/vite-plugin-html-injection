@@ -12,7 +12,7 @@ Often, when developing front-end applications, it is necessary to integrate vari
 
 As a result, `index.html` becomes bloated and hard to manage.
 
-This plugin allows you to store code snippets in separate files, keeping `index.html` clean and pristine, and inject them at build time.
+This plugin allows you to store code snippets in separate files, keeping `index.html` clean and pristine, and inject them at build time. There is no need for special placeholder tags in the `index.html` as well.
 
 The plugin also supports `Vite dev server HMR` which means you can edit code snippets and see the result immediately in the browser.
 
