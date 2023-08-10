@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-html-injection",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Vite plugin for injecting html, js, css code snippets into index.html",
   "author": "Ruslan Makarov <ruslan.makarov@gmail.com>",
   "license": "MIT",
@@ -40,7 +40,6 @@
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.8",
     "@types/node": "^20.4.5",
-    "@vitejs/plugin-vue": "^4.2.3",
     "eslint": "^8.46.0",
     "typescript": "^5.1.6",
     "vite": "^4.4.7"

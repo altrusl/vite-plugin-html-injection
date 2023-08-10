@@ -49,9 +49,13 @@ export default {
       // example injections
       injections: [
         {
+          // optional injection name
           name: "Open Graph",
+          // path to the code snippet file relative to Vite project root
           path: "./src/injections/open-graph.html",
+          // code snippet type: raw | js | css
           type: "raw",
+          // where to inject: head | body | head-prepend | body-prepend
           injectTo: "head",
         },
         {
@@ -66,8 +70,9 @@ export default {
 };
 ```
 
-> Hint: You can place config object in separate json file and import it in the vite.config.js
-> <br>
+> Hint: You can place config object in a separate json file and import it in the vite.config.js
+
+<br>
 
 2. Create corresponding code snippets:
 
@@ -98,6 +103,12 @@ export default {
 </script>
 ```
 
+<br>
+
+That's it. After running `npm serve` or `npm build` command the snippets will be injected
+
+<br>
+
 ## Signature
 
 The plugin is strongly typed. Here is the signature of its configuration:
@@ -114,3 +125,11 @@ export interface IHtmlInjectionConfigInjection {
   injectTo: "head" | "body" | "head-prepend" | "body-prepend";
 }
 ```
+
+## Contributing
+
+You are welcome to make suggestions to (GitHub Issues) of extend functionality of (fork->edit->make PR) this Vite plugin
+
+## 📄 License
+
+MIT License © 2022
