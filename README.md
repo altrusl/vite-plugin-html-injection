@@ -110,7 +110,7 @@ export default defineConfig({
 
 <br>
 
-That's it. After running `npm serve` or `npm build` command the code snippets will be injected
+That's it. After running `npm serve` or `npm build` command the code snippets will be injected.
 
 <br>
 
