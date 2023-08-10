@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-html-injection",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Vite plugin for injecting html, js, css code snippets into index.html",
   "author": "Ruslan Makarov <ruslan.makarov@gmail.com>",
   "license": "MIT",
