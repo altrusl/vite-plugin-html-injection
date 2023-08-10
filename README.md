@@ -18,7 +18,7 @@ The plugin also supports `Vite dev server HMR` which means you can edit code sni
 
 ## Description
 
-There are three `types` of code snippets - `raw`, `js` and `css`. `raw` snippets are injected as-is, `js` and `css` ones are wrapped in `<script>` and `<style>` tags respectfully.
+There are three `types` of code snippets - `raw`, `js` and `css`. `raw` snippets are injected as-is, `js` and `css` ones are wrapped in `<script>` and `<style>` tags respectfully. Default `type` value is `raw`.
 
 There are four places you can inject a code snippet to - the beginning and end of the index.html `head` tag and the beginning and end of `body`
 
@@ -43,9 +43,10 @@ npm i vite-plugin-html-injection -D
 ```js
 // vite.config.js
 
+import { defineConfig } from "vite";
 import { htmlInjectionPlugin } from "vite-plugin-html-injection";
 
-export default {
+export default defineConfig({
   plugins: [
     htmlInjectionPlugin({
       // example injections
@@ -55,7 +56,7 @@ export default {
           name: "Open Graph",
           // path to the code snippet file relative to Vite project root
           path: "./src/injections/open-graph.html",
-          // code snippet type: raw | js | css
+          // optional code snippet type: raw | js | css
           type: "raw",
           // where to inject: head | body | head-prepend | body-prepend
           injectTo: "head",
@@ -69,7 +70,7 @@ export default {
       ],
     }),
   ],
-};
+});
 ```
 
 > #### Hint:
@@ -129,6 +130,12 @@ export interface IHtmlInjectionConfigInjection {
   injectTo: "head" | "body" | "head-prepend" | "body-prepend";
 }
 ```
+
+<br>
+
+## If you like it, star it
+
+Thank you!
 
 <br>
 
