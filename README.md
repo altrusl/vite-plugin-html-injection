@@ -24,6 +24,8 @@ There are four places you can inject a code snippet to - the beginning and end o
 
 Corresponding `insertTo` values are: `head-prepend`, `head`, `body-prepend` and `body`
 
+<br>
+
 ## 📦 Installation
 
 ```bash
@@ -70,7 +72,9 @@ export default {
 };
 ```
 
-> Hint: You can place config object in a separate json file and import it in the vite.config.js
+> #### Hint:
+>
+> You can place config object in a separate json file and import it in the vite.config.js
 
 <br>
 
