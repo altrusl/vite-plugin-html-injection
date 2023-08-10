@@ -6,15 +6,21 @@
 
 Vite plugin for injecting html, js, css code snippets into index.html
 
-This plugin allows you to store code snippets in separate files keeping index.html clean and inject them during build.
+## Purpose
 
-The plugin also supports Vite dev server HMR which means you can edit code snippets and see result in the browser immediately
+Often, when developing front-end applications, it is necessary to integrate various libraries into the `index.html` file - for example, you might want to put there code for Google Analytics, PWA service worker, Open Graph and Twitter Card meta data, Splash screen, Customer support widget and much more.
+
+As a result, `index.html` becomes bloated and hard to manage.
+
+This plugin allows you to store code snippets in separate files, keeping `index.html` clean and pristine, and inject them at build time.
+
+The plugin also supports `Vite dev server HMR` which means you can edit code snippets and see the result immediately in the browser.
 
 ## Description
 
-There are three `types` of code snippets - `'raw'`, `'js'` and `'css'`. `'raw'` snippets are injected as is, `'js'` and `'css'` ones are wrapped in \<script\> and \<style\> tags respectfully.
+There are three `types` of code snippets - `raw`, `js` and `css`. `raw` snippets are injected as-is, `js` and `css` ones are wrapped in `<script>` and `<style>` tags respectfully.
 
-There are four places you can inject a code snippet to - the beginning and end of the index.html `head` and the beginning and end of `body`
+There are four places you can inject a code snippet to - the beginning and end of the index.html `head` tag and the beginning and end of `body`
 
 Corresponding `insertTo` values are: `head-prepend`, `head`, `body-prepend` and `body`
 
@@ -94,7 +100,7 @@ export default {
 
 ## Signature
 
-The plugin is strongly types. Here is the signature of its configuration:
+The plugin is strongly typed. Here is the signature of its configuration:
 
 ```ts
 export interface IHtmlInjectionConfig {
@@ -105,6 +111,6 @@ export interface IHtmlInjectionConfigInjection {
   name?: string;
   path: string;
   type?: "raw" | "js" | "css"; // default is 'raw'
-  injectTo?: "head" | "body" | "head-prepend" | "body-prepend";
+  injectTo: "head" | "body" | "head-prepend" | "body-prepend";
 }
 ```
