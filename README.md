@@ -22,7 +22,7 @@ There are three `types` of code snippets - `raw`, `js` and `css`. `raw` snippets
 
 There are four places you can inject a code snippet to - the beginning and end of the index.html `head` tag and the beginning and end of `body`
 
-Corresponding `insertTo` values are: `head-prepend`, `head`, `body-prepend` and `body`
+Corresponding `injectTo` values are: `head-prepend`, `head`, `body-prepend` and `body`
 
 <br>
 
@@ -147,4 +147,4 @@ You are welcome to make suggestions to (GitHub Issues) of extend functionality o
 
 ## License
 
-MIT License © 2022
+MIT License © 2023
