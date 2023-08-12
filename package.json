@@ -35,7 +35,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "vite build && copy types.d.ts dist\\index.d.ts"
+    "build": "vite build && copy types.d.ts dist\\index.d.ts",
+    "publish": "pnpm publish --access public"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.8",
