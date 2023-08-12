@@ -29,7 +29,11 @@ Corresponding `injectTo` values are: `head-prepend`, `head`, `body-prepend` and 
 
 ```bash
 pnpm add vite-plugin-html-injection -D
+```
+```bash
 yarn add vite-plugin-html-injection -D
+```
+```bash
 npm i vite-plugin-html-injection -D
 ```
 
