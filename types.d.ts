@@ -7,6 +7,7 @@ export interface IHtmlInjectionConfigInjection {
   path: string;
   type?: "raw" | "js" | "css";
   injectTo: "head" | "body" | "head-prepend" | "body-prepend";
+  buildModes?: "dev" | "prod" | "both";
 }
 declare function htmlInjectionPlugin(config: IHtmlInjectionConfig): Plugin;
 

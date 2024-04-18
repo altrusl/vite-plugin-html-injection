@@ -55,20 +55,23 @@ export default defineConfig({
       // example injections
       injections: [
         {
-          // optional injection name
+          // (optional) injection name
           name: "Open Graph",
           // path to the code snippet file relative to Vite project root
           path: "./src/injections/open-graph.html",
-          // optional code snippet type: raw | js | css
+          // (optional) code snippet type: raw | js | css
           type: "raw",
           // where to inject: head | body | head-prepend | body-prepend
           injectTo: "head",
+          // (optional) which modes apply to: dev | prod | both
+          buildModes: "both",
         },
         {
           name: "Google analytics",
           path: "./src/injections/ga.html",
           type: "raw",
           injectTo: "body",
+          buildModes: "prod",
         },
       ],
     }),
@@ -131,6 +134,7 @@ export interface IHtmlInjectionConfigInjection {
   path: string;
   type?: "raw" | "js" | "css"; // default is 'raw'
   injectTo: "head" | "body" | "head-prepend" | "body-prepend";
+  buildModes?: "dev" | "prod" | "both"; // default is 'both'
 }
 ```
 
@@ -150,4 +154,4 @@ You are welcome to make suggestions to (GitHub Issues) of extend functionality o
 
 ## License
 
-MIT License © 2023
+MIT License © 2023-2024

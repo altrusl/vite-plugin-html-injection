@@ -1,10 +1,10 @@
-import { Plugin, ResolvedConfig } from "vite";
-import path from "path";
-import fs from "fs";
-import { IHtmlInjectionConfig, IHtmlInjectionConfigInjection } from "./types";
+import path from "node:path";
+import fs from "node:fs";
+import type { Plugin, ResolvedConfig } from "vite";
+import type { IHtmlInjectionConfig, IHtmlInjectionConfigInjection } from "./types";
 
 export function htmlInjectionPlugin(
-  htmlInjectionConfig: IHtmlInjectionConfig
+  htmlInjectionConfig: IHtmlInjectionConfig,
 ): Plugin {
   let config: undefined | ResolvedConfig;
 
@@ -18,13 +18,17 @@ export function htmlInjectionPlugin(
     transformIndexHtml(html: string) {
       let out = html;
       for (let i = 0; i < htmlInjectionConfig.injections.length; i++) {
-        const injection: IHtmlInjectionConfigInjection =
-          htmlInjectionConfig.injections[i];
+        const injection: IHtmlInjectionConfigInjection
+          = htmlInjectionConfig.injections[i];
 
-        let root = (config as ResolvedConfig).root;
-        // const filePath = root + injection.path;
+        const root = (config as ResolvedConfig).root;
         const filePath = path.resolve(root, injection.path);
         let data = fs.readFileSync(filePath, "utf8");
+        if (injection.buildModes
+          && ((injection.buildModes === "dev" && !config?.env.DEV)
+          || (injection.buildModes === "prod" && !config?.env.PROD))) {
+          return out;
+        }
         if (injection.type === "js") {
           data = `<script>\n${data}\n</script>\n`;
         } else if (injection.type === "css") {
