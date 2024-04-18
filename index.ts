@@ -1,5 +1,5 @@
-import path from "node:path";
-import fs from "node:fs";
+import path from "path";
+import fs from "fs";
 import type { Plugin, ResolvedConfig } from "vite";
 import type { IHtmlInjectionConfig, IHtmlInjectionConfigInjection } from "./types";
 
@@ -27,7 +27,7 @@ export function htmlInjectionPlugin(
         if (injection.buildModes
           && ((injection.buildModes === "dev" && !config?.env.DEV)
           || (injection.buildModes === "prod" && !config?.env.PROD))) {
-          return out;
+          continue;
         }
         if (injection.type === "js") {
           data = `<script>\n${data}\n</script>\n`;
