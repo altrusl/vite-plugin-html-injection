@@ -1,6 +1,7 @@
 import { type Plugin } from "vite";
 export interface IHtmlInjectionConfig {
   injections: IHtmlInjectionConfigInjection[];
+  enforce?: string;
 }
 export interface IHtmlInjectionConfigInjection {
   name?: string;

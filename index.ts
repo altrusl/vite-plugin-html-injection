@@ -11,6 +11,8 @@ export function htmlInjectionPlugin(
   return {
     name: "html-injection",
 
+    enforce: htmlInjectionConfig.enforce,
+
     configResolved(resolvedConfig) {
       config = resolvedConfig;
     },
