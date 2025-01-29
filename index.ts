@@ -17,7 +17,7 @@ export function htmlInjectionPlugin(
 
     transformIndexHtml: {
       order: htmlInjectionConfig.order,
-      handler: (html) => transformHtml({ html, config, htmlInjectionConfig }),
+      handler: (html: string) => transformHtml({ html, config, htmlInjectionConfig }),
     },
   };
 }
