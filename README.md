@@ -52,7 +52,7 @@ import { htmlInjectionPlugin } from "vite-plugin-html-injection";
 export default defineConfig({
   plugins: [
     htmlInjectionPlugin({
-      // transformation order - set to "pre" to use html env replacement in html files
+      // transformation order - set to "pre" to use env variable replacement in html files
       // See https://vite.dev/guide/api-plugin.html#transformindexhtml
       order: "pre",
       // example injections

@@ -22,6 +22,12 @@ export function htmlInjectionPlugin(
   };
 }
 
+type TransformProps = {
+  html: string;
+  htmlInjectionConfig: IHtmlInjectionConfig;
+  config?: ResolvedConfig;
+};
+
 function transformHtml({ html, htmlInjectionConfig, config }: TransformProps) {
   let out = html;
 
