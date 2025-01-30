@@ -1,31 +1,40 @@
-# Html injection Vite plugin
+# Html Injection Vite Plugin
 
 [![NPM](https://img.shields.io/npm/v/vite-plugin-html-injection)](https://www.npmjs.com/package/vite-plugin-html-injection)
 [![NPM downloads](https://img.shields.io/npm/dt/vite-plugin-html-injection)](https://www.npmjs.com/package/vite-plugin-html-injection)
 
-Vite plugin for injecting html, js, css code snippets into index.html
+[🇬🇧 English](README.md) | [🇪🇸 Español](README.es.md) | [🇷🇺 Русский](README.ru.md) | [🇨🇳 中文](README.zh.md)
+
+Vite plugin for injecting HTML, JS, and CSS code snippets into `index.html`.
 
 ## Purpose
 
-Often, when developing front-end applications, it is necessary to integrate various libraries into the `index.html` file - for example, you might want to put there code for Google Analytics, PWA service worker, Open Graph and Twitter Card meta data, Splash screen, Customer support widget and much more.
+Often, when developing front-end applications, it is necessary to integrate various libraries into the `index.html` file - for example, you might want to include code for Google Analytics, PWA service workers, Open Graph and Twitter Card meta data, Splash screens, Customer support widgets, and much more.
 
 As a result, `index.html` becomes bloated and hard to manage.
 
 This plugin allows you to store code snippets in separate files, keeping `index.html` clean and pristine, and inject them at build time. There is no need for special placeholder tags in the `index.html` as well.
 
-The plugin also supports `Vite dev server HMR` which means you can edit code snippets and see the result immediately in the browser.
+The plugin also supports `Vite dev server HMR`, which means you can edit code snippets and see the results immediately in the browser.
+
+Additionally, the plugin allows for different configurations in development and production modes. By specifying the `buildModes` property, you can enable or disable specific code snippets depending on the environment, simplifying development and reducing unnecessary code in Dev mode.
 
 ## Description
 
-There are three `types` of code snippets - `raw`, `js` and `css`. `raw` snippets are injected as-is, `js` and `css` ones are wrapped in `<script>` and `<style>` tags respectfully. Default `type` value is `raw`.
+There are three `types` of code snippets - `raw`, `js`, and `css`. `raw` snippets are injected as-is, while `js` and `css` snippets are wrapped in `<script>` and `<style>` tags respectively. The default `type` value is `raw`.
 
-There are four places you can inject a code snippet to - the beginning and end of the index.html `head` tag and the beginning and end of `body`
+There are four places where you can inject a code snippet into the `index.html`:
+- The beginning of the `<head>` tag (`head-prepend`)
+- The end of the `<head>` tag (`head`)
+- The beginning of the `<body>` tag (`body-prepend`)
+- The end of the `<body>` tag (`body`)
 
-Corresponding `injectTo` values are: `head-prepend`, `head`, `body-prepend` and `body`
+Corresponding `injectTo` values are: `head-prepend`, `head`, `body-prepend`, and `body`.
 
 <br>
 
 ## Installation
+
 
 ```bash
 pnpm add vite-plugin-html-injection -D
@@ -152,10 +161,11 @@ Thank you!
 
 ## Contributing
 
-You are welcome to make suggestions to (GitHub Issues) of extend functionality of (fork-modify-make PR) this Vite plugin
+
+You are welcome to make suggestions through [GitHub Issues](https://github.com/vite-plugin-html-injection/issues) or extend functionality by [forking, modifying, and making a PR](https://github.com/vite-plugin-html-injection/pulls) to this Vite plugin.
 
 <br>
 
 ## License
 
-MIT License © 2023-2024
+MIT License © 2023-2025
