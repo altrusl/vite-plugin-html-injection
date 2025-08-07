@@ -1,7 +1,19 @@
 import path from "path";
 import fs from "fs";
 import type { Plugin, ResolvedConfig } from "vite";
-import type { IHtmlInjectionConfig, IHtmlInjectionConfigInjection } from "./types";
+
+export interface IHtmlInjectionConfig {
+  injections: IHtmlInjectionConfigInjection[];
+  order?: "pre" | "post";
+}
+
+export interface IHtmlInjectionConfigInjection {
+  name?: string;
+  path: string;
+  type?: "raw" | "js" | "css";
+  injectTo: "head" | "body" | "head-prepend" | "body-prepend";
+  buildModes?: "dev" | "prod" | "both";
+}
 
 export function htmlInjectionPlugin(
   htmlInjectionConfig: IHtmlInjectionConfig,

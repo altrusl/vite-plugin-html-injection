@@ -1,9 +1,14 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
-// import vue from "@vitejs/plugin-vue";
+import dts from 'vite-plugin-dts';
 
 export default defineConfig({
-  plugins: [],
+  plugins: [
+    dts({
+      insertTypesEntry: true,
+      rollupTypes: true
+    })
+  ],
   build: {
     lib: {
       entry: resolve(__dirname, "./index.ts"),
@@ -12,7 +17,7 @@ export default defineConfig({
       formats: ["es", "cjs"],
     },
     rollupOptions: {
-      external: ["fs", "path"],
+      external: ["fs", "path", "vite"],
     },
   },
 });
